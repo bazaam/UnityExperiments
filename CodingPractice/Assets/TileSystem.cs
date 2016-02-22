@@ -30,12 +30,16 @@ public class TileSystem : MonoBehaviour
 
         public Location tilePosition;
         public int triggerId = 0;
-        public List<TileProperty> tileProperties = new List<TileProperty>();
+
+
+        protected List<TileProperty> tileProperties = new List<TileProperty>();
+        protected ArrayList toys;
 
         public Tile(string tileId, Location position, int trigger, ArrayList toyList)
         {
 
             tilePosition = position;
+            toys = toyList;
 
             //constructor gives the tile its properties from its ID
             switch (tileId)
@@ -62,13 +66,29 @@ public class TileSystem : MonoBehaviour
                     tileProperties = null;
                     break;
             }
-                
+
+            
+
+
+        }
+
+        //public accessors
+        public List<TileProperty> GetProperties()
+
+        {
+            return tileProperties;
+        }
+
+        public ArrayList GetToys()
+        {
+            return toys;
         }
 
 
+        
+
+
     }
-
-
     public class TileMap
     {
 
@@ -92,7 +112,7 @@ public class TileSystem : MonoBehaviour
             }
 
         }
-            
+
 
         public void SetTile(Tile tile, Location arrayPosition)
         {
@@ -101,5 +121,10 @@ public class TileSystem : MonoBehaviour
 
 
     }
-	
 }
+
+
+
+
+
+
