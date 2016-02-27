@@ -84,6 +84,11 @@ public class TileSystem : MonoBehaviour
             return toys;
         }
 
+        public void AddToy(MoveableCharacter toy)
+        {
+            toys.Add(toy);
+        }
+
 
         
 
